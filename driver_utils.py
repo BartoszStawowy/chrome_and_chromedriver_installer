@@ -54,6 +54,7 @@ CHROMEDRIVER_ZIP_PATH = join(f'{drivers_dir()}/chromedriver-{get_os()}.zip')
 ### DOWNLOAD PROPER CHROME VERSION ###
 
 chrome_git_labs = 'https://googlechromelabs.github.io/chrome-for-testing/'
+download_storage_url = 'https://storage.googleapis.com/chrome-for-testing-public/'
 
 
 def get_chrome_drivers_stable_version():
@@ -71,18 +72,18 @@ def chrome_url_builder():
     os, arch = get_os_and_architecture()
     version = get_chrome_drivers_stable_version()
     if os == 'mac':
-        url = f'{chrome_git_labs}{version}/{os}-{arch}/chrome-{os}-{arch}.zip'
+        url = f'{download_storage_url}{version}/{os}-{arch}/chrome-{os}-{arch}.zip'
     else:
-        url = f'{chrome_git_labs}{version}/{os}{arch}/chrome-{os}{arch}.zip'
+        url = f'{download_storage_url}{version}/{os}{arch}/chrome-{os}{arch}.zip'
     return url
 
 def chromedriver_url_builder():
     os, arch = get_os_and_architecture()
     version = get_chrome_drivers_stable_version()
     if os == 'mac':
-        url = f'{chrome_git_labs}{version}/{os}-{arch}/chromedriver-{os}-{arch}.zip'
+        url = f'{download_storage_url}{version}/{os}-{arch}/chromedriver-{os}-{arch}.zip'
     else:
-        url = f'{chrome_git_labs}{version}/{os}{arch}/chromedriver-{os}{arch}.zip'
+        url = f'{download_storage_url}{version}/{os}{arch}/chromedriver-{os}{arch}.zip'
     return url
 
 def download_chromium():
@@ -153,6 +154,4 @@ def run():
 
 if __name__ == '__main__':
     run()
-
-
 
